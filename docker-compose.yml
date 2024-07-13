@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  app:
+    build: .
+    container_name: "container-backend-lovelace"
+    command: sh -c "npm run migrate && npm start"
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/usr/app
+    links:
+      - db
+    depends_on:
+      - db   
+    environment:
+      DB_HOST: ${PGHOST}
+      DB_USER: ${PGUSER}
+      DB_PASS: ${PGPASSWORD}
+      DB_NAME: ${PGDATABASE}
+  db:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    # restart: always
+    environment:
+      POSTGRES_DB: dblovelace
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  adminer:
+    image: adminer
+    # restart: always
+    ports:
+      - 8080:8080
