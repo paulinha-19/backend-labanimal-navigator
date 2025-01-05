@@ -26,9 +26,10 @@ services:
       - 5432:5432
     # restart: always
     environment:
-      POSTGRES_DB: dblabanimalnavigator
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      PGDATABASE: dblabanimalnavigator
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGHOST: db
 
   adminer:
     image: adminer
