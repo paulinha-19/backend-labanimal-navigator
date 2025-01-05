@@ -3,7 +3,7 @@ version: '3.1'
 services:
   app:
     build: .
-    container_name: "container-backend-labanimal-navigator"
+    container_name: "container-backend-lab-animal-navigator"
     command: sh -c "npm run migrate && npm start"
     ports:
       - 5000:5000
