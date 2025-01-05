@@ -29,7 +29,6 @@ services:
       PGDATABASE: dblabanimalnavigator
       PGUSER: postgres
       PGPASSWORD: postgres
-      PGHOST: db
 
   adminer:
     image: adminer
