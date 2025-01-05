@@ -8,6 +8,7 @@ module.exports = {
       user: process.env.PGUSER,
       password: process.env.PGPASSWORD,
       database: process.env.PGDATABASE,
+      port: process.env.PGPORT || 5432,
     },
     migrations: {
       extension: "ts",
@@ -20,12 +21,7 @@ module.exports = {
     ssl: {
       rejectUnauthorized: false,
     },
-    connection: {      
-      host: process.env.PGHOST,
-      user: process.env.PGUSER,
-      password: process.env.PGPASSWORD,
-      database: process.env.PGDATABASE,
-    },
+    connection: process.env.DATABASE_URL, // Use a variável DATABASE_URL para produção
     migrations: {
       extension: "ts",
       tableName: "knex_migrations",
