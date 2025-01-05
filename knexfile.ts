@@ -18,10 +18,12 @@ module.exports = {
   },
   production: {
     client: "pg",
-    ssl: {
-      rejectUnauthorized: false,
+    connection: {
+      database: process.env.DATABASE_URL, // para produção
+      ssl: {
+        rejectUnauthorized: false, // Permite conexão segura com certificados padrão
+      },
     },
-    connection: process.env.DATABASE_URL, // Use a variável DATABASE_URL para produção
     migrations: {
       extension: "ts",
       tableName: "knex_migrations",
