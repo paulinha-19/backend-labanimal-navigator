@@ -3,7 +3,7 @@ require("dotenv").config();
 module.exports = {
   development: {
     client: "pg",
-    connection: {      
+    connection: {
       host: process.env.PGHOST,
       user: process.env.PGUSER,
       password: process.env.PGPASSWORD,
@@ -19,7 +19,7 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      database: process.env.DATABASE_URL, // para produção
+      connectionString: process.env.DATABASE_URL, // para produção
       ssl: {
         rejectUnauthorized: false, // Permite conexão segura com certificados padrão
       },
