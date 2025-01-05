@@ -1,7 +1,7 @@
 {
-  "name": "backend-lovelace",
+  "name": "backend-labanimal-navigator",
   "version": "1.0.0",
-  "description": "This is the API for backend lovelace application.",
+  "description": "This is the API for backend labanimal-navigator application.",
   "main": "server.js",
   "engines": {
     "node": "18.18.1"
@@ -14,7 +14,7 @@
     "postinstall": "npm run build && npm run migrate",
     "migrate": "knex migrate:latest"
   },
-  "author": "Paula Soares e Yasmim",
+  "author": "Paula Soares",
   "license": "ISC",
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.4",
