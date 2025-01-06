@@ -60,7 +60,7 @@ export = (app: Application) => {
             .then(() => {
               res.json({
                 message:
-                  "Foi enviado email de recuperação para o email cadastrado",
+                  "Verifique sua caixa de entrado do email para continuar a recuperação da senha",
               });
             })
             .catch((erro) => {
