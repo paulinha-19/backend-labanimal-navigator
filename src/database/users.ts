@@ -81,6 +81,7 @@ export class UserLogin {
 
       const transporter = nodemailer.createTransport({
         service: "gmail",
+        secure: true,
         host: "smtp.gmail.com",
         auth: {
           user: process.env.USER_GMAIL,
@@ -89,7 +90,7 @@ export class UserLogin {
       });
 
       const mailOptions = {
-        from: "contaparaoaplicativo46@gmail.com",
+        from: '"EMPFO" <aplicacoes38@gmail.com>',
         to: `${user.email}`,
         subject: "Recuperação de Senha",
         html: `<p>Olá ${user.email},</p>
@@ -101,6 +102,7 @@ export class UserLogin {
       await transporter.sendMail(mailOptions);
       return true;
     } catch (error) {
+      console.log("error", error);
       throw new Error("Email inválido");
     }
   }
