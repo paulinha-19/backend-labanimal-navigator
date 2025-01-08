@@ -60,7 +60,7 @@ export = (app: Application) => {
             .then(() => {
               res.json({
                 message:
-                  "Verifique sua caixa de entrado do email para continuar a recuperação da senha",
+                  "Verifique sua caixa de entrado do email para continuar com a recuperação da senha",
               });
             })
             .catch((erro) => {
