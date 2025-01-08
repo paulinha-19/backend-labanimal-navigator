@@ -16,10 +16,14 @@ export class UserLogin {
             if (comparePasswords(senha, usuario.password)) {
               resolve(usuario);
             } else {
-              reject("Senha incorreta.");
+              reject(
+                "Credenciais incorretas. Por favor, verifique-as e tente novamente"
+              );
             }
           } else {
-            reject("Nenhum usuário encontrado");
+            reject(
+              "Credenciais incorretas. Por favor, verifique-as e tente novamente"
+            );
           }
         })
         .catch((erro: any) => {
