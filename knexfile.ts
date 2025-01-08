@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+const env = process.env.AUTHORIZATION || process.env.NODE_ENV || "development";
+
 module.exports = {
   development: {
     client: "pg",
@@ -19,10 +21,8 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      connectionString: process.env.DATABASE_URL, // para produção
-      ssl: {
-        rejectUnauthorized: false, // Permite conexão segura com certificados padrão
-      },
+      host: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
     },
     migrations: {
       extension: "ts",
