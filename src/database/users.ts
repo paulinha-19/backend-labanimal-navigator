@@ -94,7 +94,7 @@ export class UserLogin {
       });
 
       const mailOptions = {
-        from: '"EMPFO" <aplicacoes38@gmail.com>',
+        from: '"LABANIMAL NAVIGATOR" <aplicacoes38@gmail.com>',
         to: `${user.email}`,
         subject: "Recuperação de Senha",
         html: `<p>Olá ${user.email},</p>
