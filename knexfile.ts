@@ -1,8 +1,24 @@
+import { Knex } from "knex";
 require("dotenv").config();
 
-const env = process.env.AUTHORIZATION || process.env.NODE_ENV || "production";
+const env = process.env.AUTHORIZATION || process.env.NODE_ENV || "development";
 
-module.exports = {
+const knexConfig: Record<string, Knex.Config> = {
+  development: {
+    client: "pg",
+    connection: {
+      host: process.env.PGHOST,
+      user: process.env.PGUSER,
+      password: process.env.PGPASSWORD,
+      database: process.env.PGDATABASE,
+      port: Number(process.env.PGPORT),
+    },
+    migrations: {
+      extension: "ts",
+      tableName: "knex_migrations",
+      directory: "./migrations",
+    },
+  },
   production: {
     client: "pg",
     connection: {
@@ -15,4 +31,6 @@ module.exports = {
       directory: "./migrations",
     },
   },
-}[env];
+};
+
+export default knexConfig[env];
