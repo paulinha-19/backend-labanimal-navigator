@@ -13,6 +13,10 @@ const knexConfig: Record<string, Knex.Config> = {
       database: process.env.PGDATABASE,
       port: Number(process.env.PGPORT),
     },
+    pool: {
+      min: 1,
+      max: 10,
+    },
     migrations: {
       extension: "ts",
       tableName: "knex_migrations",
@@ -24,6 +28,10 @@ const knexConfig: Record<string, Knex.Config> = {
     connection: {
       connectionString: process.env.DATABASE_URL,
       ssl: { rejectUnauthorized: false },
+    },
+    pool: {
+      min: 1,
+      max: 10,
     },
     migrations: {
       extension: "ts",
