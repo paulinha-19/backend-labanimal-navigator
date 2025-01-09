@@ -1,17 +1,6 @@
 import Knex from "knex";
+import knexConfig from "../knexfile";
 require("dotenv").config();
 
-export const knex = Knex({
-  client: "pg",
-  connection: {
-    host: process.env.PGHOST,
-    port: Number(process.env.PGPORT),
-    user: process.env.PGUSER,
-    password: process.env.PGPASSWORD,
-    database: process.env.PGDATABASE,
-  },
-  pool: {
-    min: 1,
-    max: 10,
-  },
-});
+export const knex = Knex(knexConfig)
+
